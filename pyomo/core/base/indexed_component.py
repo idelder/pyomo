@@ -515,6 +515,8 @@ You can silence this warning by one of three ways:
             # IndexedComponent): we might as well just sort the sparse
             # _data keys instead of iterating over the whole index.
             return iter(sorted_robust(self._data))
+        elif SortComponents.UNSORTED in sort:
+            return iter(self._data)
         else:
             #
             # Test each element of a sparse _data with an ordered
